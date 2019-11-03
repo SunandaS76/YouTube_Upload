@@ -8,3 +8,4 @@
     
     The eg. of excel file is given.
     Table must be same as it is given in example file, but can have number of entries.
+    Required JSON file is also given.
