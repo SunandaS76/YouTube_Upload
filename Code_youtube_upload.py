@@ -13,15 +13,6 @@ from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
 
-httplib2.RETRIES = 1
-MAX_RETRIES = 10
-RETRIABLE_EXCEPTIONS = (httplib2.HttpLib2Error, IOError,
-  http.client.IncompleteRead, http.client.ImproperConnectionState,
-  http.client.CannotSendRequest, http.client.CannotSendHeader,
-  http.client.ResponseNotReady, http.client.BadStatusLine)
-
-RETRIABLE_STATUS_CODES = [500, 502, 503, 504]
-
 scopes = ["https://www.googleapis.com/auth/youtube.upload"]
 
 
@@ -39,7 +30,7 @@ class upload:
         print("ENTER PATH OF FILE")
         self.path = input()
         self.open_excel_file(1)
-#        print(self.path)
+
 
 
     def open_excel_file(self,start):
@@ -64,7 +55,6 @@ class upload:
                 self.file_name = sheet.cell_value(i,8)
                 #print(sheet.cell_value(i,j))
             self.initialize_upload(youtube)
-        #    self.resumable_upload(self.insert_request)
         if i<rows:
             open_excel_file(i)
         else :
